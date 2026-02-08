@@ -1,84 +1,197 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <title>RootsMP | Minecraft Sunucusu</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(135deg, #1e1e1e, #2b2b2b);
-            color: white;
-            text-align: center;
-        }
-        header {
-            padding: 60px 20px;
-            background: #2ecc71;
-            color: #000;
-        }
-        header h1 {
-            font-size: 48px;
-            margin: 0;
-        }
-        header p {
-            font-size: 20px;
-        }
-        .container {
-            padding: 40px 20px;
-        }
-        .card {
-            background: #111;
-            max-width: 500px;
-            margin: 20px auto;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
-        }
-        .ip {
-            font-size: 22px;
-            background: #2ecc71;
-            color: black;
-            padding: 10px;
-            border-radius: 8px;
-            margin-top: 10px;
-            user-select: all;
-        }
-        footer {
-            margin-top: 40px;
-            padding: 20px;
-            background: #000;
-            font-size: 14px;
-            opacity: 0.8;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>RootSMP | Minecraft Sunucusu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    min-height: 100vh;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 80px 20px;
+    animation: fadeDown 1.5s ease;
+}
+
+header h1 {
+    font-size: 4rem;
+    color: #00ffcc;
+}
+
+header p {
+    margin-top: 15px;
+    font-size: 1.2rem;
+}
+
+/* IP BOX */
+.ip-box {
+    margin: 30px auto;
+    background: rgba(0,0,0,0.5);
+    padding: 15px 30px;
+    border-radius: 10px;
+    width: fit-content;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.ip-box:hover {
+    background: rgba(0,0,0,0.8);
+    transform: scale(1.05);
+}
+
+/* SECTIONS */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #00ffcc;
+}
+
+/* CARDS */
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.card {
+    background: rgba(0,0,0,0.5);
+    border-radius: 15px;
+    width: 260px;
+    padding: 25px;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 0 20px #00ffcc;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: #00ffcc;
+}
+
+.card p {
+    font-size: 0.95rem;
+}
+
+.card button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #00ffcc;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card button:hover {
+    background: white;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    opacity: 0.7;
+}
+
+/* ANIMATIONS */
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
 </head>
 <body>
 
 <header>
-    <h1>RootsMP</h1>
-    <p>Hayatta Kal • Eğlence • Topluluk</p>
+    <h1>RootSMP</h1>
+    <p>En kaliteli Minecraft Survival deneyimi</p>
+
+    <div class="ip-box" onclick="copyIP()">
+        <strong>IP:</strong> rootnnw.falixsrv.me <br>
+        <small>(Tıklayarak kopyala)</small>
+    </div>
 </header>
 
-<div class="container">
-    <div class="card">
-        <h2>🌍 Sunucu IP</h2>
-        <div class="ip">rootnnw.falixsrv.me</div>
-        <p>IP’ye tıklayıp kopyalayabilirsin</p>
-    </div>
+<section>
+    <h2>💎 Ranklar</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>VIP</h3>
+            <p>• /fly<br>• Özel kit<br>• VIP sohbet</p>
+            <button>Satın Al</button>
+        </div>
 
-    <div class="card">
-        <h2>⚔️ Sunucu Hakkında</h2>
-        <p>
-            RootsMP, dost canlısı topluluğu ve eğlenceli oynanışıyla
-            kaliteli bir Minecraft deneyimi sunar.
-        </p>
+        <div class="card">
+            <h3>VIP+</h3>
+            <p>• VIP özellikleri<br>• Ek komutlar<br>• Özel prefix</p>
+            <button>Satın Al</button>
+        </div>
+
+        <div class="card">
+            <h3>MVP</h3>
+            <p>• Tüm özellikler<br>• En güçlü rank</p>
+            <button>Satın Al</button>
+        </div>
     </div>
-</div>
+</section>
+
+<section>
+    <h2>📦 Kasalar</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Spawner Kasası</h3>
+            <p>Nadir spawner ödülleri</p>
+            <button>Satın Al</button>
+        </div>
+
+        <div class="card">
+            <h3>OP Kasa</h3>
+            <p>Efsane itemler</p>
+            <button>Satın Al</button>
+        </div>
+
+        <div class="card">
+            <h3>Para Kasası</h3>
+            <p>Bol coin & ekonomi</p>
+            <button>Satın Al</button>
+        </div>
+    </div>
+</section>
 
 <footer>
-    © 2026 RootsMP | Tüm Hakları Saklıdır
+    © 2026 RootSMP | Tüm Hakları Saklıdır
 </footer>
+
+<script>
+function copyIP() {
+    navigator.clipboard.writeText("rootnnw.falixsrv.me");
+    alert("IP kopyalandı!");
+}
+</script>
 
 </body>
 </html>
