@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RootSMP | Destek Talebi Oluştur</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #060913; }
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.09); }
+        .premium-gradient { background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%); }
+    </style>
+</head>
+<body class="text-gray-100 min-h-screen flex flex-col justify-between antialiased">
+
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div class="absolute top-[20%] left-[50%] -translate-x-1/2 w-96 h-96 bg-emerald-500/10 rounded-full filter blur-[120px] animate-pulse"></div>
+    </div>
+
+    <nav class="w-full py-5 px-6 md:px-12 flex justify-between items-center bg-[#060913]/70 backdrop-blur-md border-b border-white/10">
+        <a href="index.html" class="flex items-center space-x-3 group">
+            <div class="w-10 h-10 premium-gradient rounded-xl flex items-center justify-center shadow-lg"><i class="fa-solid fa-arrow-left text-white"></i></div>
+            <span class="text-xl font-bold text-gray-300 hover:text-white transition-colors">Geri Dön</span>
+        </a>
+        <span class="text-xl font-black text-white">Root<span class="text-emerald-400 drop-shadow-[0_0_15px_rgba(52,211,153,0.6)]">smp</span></span>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center p-6 my-8">
+        <div class="w-full max-w-xl glass-card p-8 md:p-10 rounded-3xl shadow-2xl animate__animated animate__fadeInUp">
+            <div class="text-center mb-8">
+                <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                    <i class="fa-solid fa-headset animate-bounce"></i>
+                </div>
+                <h1 class="text-3xl font-extrabold text-white tracking-tight">Destek Talebi Aç</h1>
+                <p class="text-gray-400 text-sm mt-2">Yaşadığın sorunu bize ilet, yetkililerimiz en kısa sürede çözüme kavuştursun.</p>
+            </div>
+
+            <form id="supportForm" onsubmit="submitForm(event)" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-300 mb-2"><i class="fa-solid fa-user text-xs mr-1 text-emerald-400"></i> Oyuncu Adı (In-Game Name)</label>
+                    <input type="text" required placeholder="Minecraft kullanıcı adınız..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-300 mb-2"><i class="fa-solid fa-layer-group text-xs mr-1 text-emerald-400"></i> Talep Kategorisi</label>
+                    <select required class="w-full bg-[#0a0f1d] border border-white/10 rounded-xl px-4 py-3.5 text-gray-300 focus:outline-none focus:border-emerald-500/50 transition-all">
+                        <option value="sorun">Oyun İçi Hata / Sorun Bildirimi</option>
+                        <option value="odeme">Market & Ödeme İşlemleri</option>
+                        <option value="sikayet">Oyuncu / Yetkili Şikayeti</option>
+                        <option value="diger">Diğer / Genel Soru</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-300 mb-2"><i class="fa-solid fa-pen-to-square text-xs mr-1 text-emerald-400"></i> Mesajınız</label>
+                    <textarea required rows="4" placeholder="Sorununuzu detaylıca açıklayınız..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all resize-none"></textarea>
+                </div>
+
+                <button type="submit" id="submitBtn" class="w-full premium-gradient text-white font-extrabold py-4 rounded-xl shadow-lg shadow-emerald-900/30 hover:scale-[1.01] active:scale-95 transition-all cursor-pointer flex items-center justify-center space-x-2">
+                    <i class="fa-regular fa-paper-plane"></i>
+                    <span>TALEBİ GÖNDER</span>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="border-t border-white/10 bg-[#04060d] py-6 text-center text-xs text-gray-500">
+        <p>Hızlı yanıt almak için <a href="https://discord.gg/UmAtdm77kw" target="_blank" class="text-emerald-400 hover:underline">Discord</a> adresimizden de talep açabilirsiniz.</p>
+    </footer>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            const btn = document.getElementById("submitBtn");
+            const form = document.getElementById("supportForm");
+            
+            btn.innerHTML = '<i class="fa-solid fa-circle-check animate__animated animate__zoomIn"></i> <span>TALEBİNİZ ALINDI!</span>';
+            btn.style.background = "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)";
+            
+            setTimeout(() => {
+                form.reset();
+                btn.innerHTML = '<i class="fa-regular fa-paper-plane"></i> <span>TALEBİ GÖNDER</span>';
+                btn.style.background = "";
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
